@@ -14,7 +14,7 @@ import TimberPattern from './TimberPattern.vue'
         <h1 class="text-4xl sm:text-5xl md:text-7xl font-display font-black leading-[0.95] text-timber">
           Taschen <span class="text-ratred">&amp;</span> Reise.<br/>
           <span class="relative inline-block">
-            Mitten in Hameln.
+            Im Herzen von Hameln.
             <svg class="absolute -bottom-3 left-0 w-full" height="14" viewBox="0 0 300 14" preserveAspectRatio="none" aria-hidden="true">
               <path d="M2 9 Q 75 1, 150 7 T 298 6" stroke="#e8b923" stroke-width="6" fill="none" stroke-linecap="round"/>
             </svg>
