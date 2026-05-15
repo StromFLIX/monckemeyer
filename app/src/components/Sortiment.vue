@@ -1,13 +1,16 @@
 <script setup>
 import { ref, computed } from 'vue'
-const shopUrl = 'https://moenckemeyer.bagmondo.de/products'
+const vendor = '?vendor_permalink%5B%5D=moenckemeyer-taschen-und-reise'
+const base = 'https://moenckemeyer.bagmondo.de'
+const shopUrl = base + '/products' + vendor
+
 const items = [
-  { key: 'reise',    title: 'Reisegepäck',  desc: 'Koffer, Trolleys, Weekender – für jede Tour.', color: 'bg-teal',        text: 'text-plaster' },
-  { key: 'rucks',    title: 'Rucksäcke',    desc: 'Stadt, Uni, Outdoor & Business.',              color: 'bg-plaster',     text: 'text-timber'  },
-  { key: 'damen',    title: 'Damentaschen', desc: 'Klassiker bis Statement – top Labels.',       color: 'bg-plasterDark', text: 'text-timber'  },
-  { key: 'herren',   title: 'Herrentaschen',desc: 'Umhänge-, Kurier- und Schultertaschen.',      color: 'bg-tealDark',    text: 'text-plaster' },
-  { key: 'business', title: 'Business',     desc: 'Aktentaschen, Laptopcases, Organizer.',       color: 'bg-teal',        text: 'text-plaster' },
-  { key: 'klein',    title: 'Geldbörsen & Kleinleder', desc: 'Portemonnaies, Etuis, Accessoires.', color: 'bg-plaster',   text: 'text-timber'  }
+  { key: 'accessoires', title: 'Accessoires',           desc: 'Geldbörsen, Etuis, Gürtel und Schirme – von Secrid bis Knirps.', href: base + '/accessoires'             + vendor, color: 'bg-teal',        text: 'text-plaster' },
+  { key: 'koffer',      title: 'Koffer & Reisetaschen', desc: 'Hartschalenkoffer, Trolleys & Weekender – Samsonite, Travelite & Co.', href: base + '/koffer-und-reisetaschen' + vendor, color: 'bg-plaster',     text: 'text-timber'  },
+  { key: 'taschen',     title: 'Taschen',               desc: 'PICARD, SURI FREY, Braun Büffel – für Damen und Herren.',       href: base + '/taschen'                 + vendor, color: 'bg-plasterDark', text: 'text-timber'  },
+  { key: 'rucks',       title: 'Rucksäcke',             desc: 'Schule, Uni, Stadt & Outdoor – satch, Ergobag, CABAIA und mehr.', href: base + '/rucksaecke'              + vendor, color: 'bg-tealDark',    text: 'text-plaster' },
+  { key: 'fashion',     title: 'Fashion & Lifestyle',   desc: 'Reisenthel & Co. – Shopper, Tücher und Lifestyle-Begleiter.',  href: base + '/fashion-und-lifestyle'   + vendor, color: 'bg-teal',        text: 'text-plaster' },
+  { key: 'freizeit',    title: 'Freizeit',              desc: 'Stockschirme von Doppler, Einkaufstrolleys & Outdoor-Begleiter.', href: base + '/freizeit'                + vendor, color: 'bg-plaster',     text: 'text-timber'  }
 ]
 
 const expanded = ref(false)
@@ -34,7 +37,7 @@ onUnmounted(() => window.removeEventListener('resize', updateIsMobile))
 
       <div class="mt-8 md:mt-12 grid grid-cols-2 lg:grid-cols-3 gap-3 md:gap-5">
         <a v-for="it in visibleItems" :key="it.key"
-           :href="shopUrl" target="_blank" rel="noopener"
+           :href="it.href" target="_blank" rel="noopener"
            :class="['group relative min-w-0 rounded-xl border-2 border-timber overflow-hidden p-4 md:p-6 min-h-[120px] md:min-h-[180px] flex flex-col justify-between transition-transform hover:-translate-y-1', it.color, it.text]"
            :style="{ boxShadow: '5px 5px 0 0 #2a1a12' }">
           <h3 class="font-display text-lg sm:text-xl md:text-2xl font-black leading-tight break-words hyphens-auto" lang="de">{{ it.title }}</h3>
