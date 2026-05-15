@@ -1,5 +1,6 @@
 <script setup>
 import TimberPattern from './TimberPattern.vue'
+import FachwerkRow from './FachwerkRow.vue'
 </script>
 
 <template>
@@ -8,7 +9,7 @@ import TimberPattern from './TimberPattern.vue'
     <!-- Warmer Verlauf -->
     <div class="absolute inset-0 bg-gradient-to-br from-plaster via-plaster to-plasterDark opacity-90 -z-0"></div>
 
-    <div class="relative max-w-6xl mx-auto px-4 md:px-6 pt-10 md:pt-20 pb-14 md:pb-28 grid md:grid-cols-12 gap-8 md:gap-10 items-center">
+    <div class="relative max-w-6xl mx-auto px-4 md:px-6 pt-10 md:pt-20 pb-8 md:pb-12 grid md:grid-cols-12 gap-8 md:gap-10 items-center">
       <div class="md:col-span-7">
         <span class="eyebrow">seit 1879 · 5. Generation</span>
         <h1 class="text-4xl sm:text-5xl md:text-7xl font-display font-black leading-[0.95] text-timber">
@@ -72,6 +73,11 @@ import TimberPattern from './TimberPattern.vue'
           5. Generation
         </div>
       </div>
+    </div>
+
+    <!-- Hamelner Fachwerk-Silhouette -->
+    <div class="relative -mt-4 sm:-mt-8 md:-mt-10 overflow-hidden">
+      <FachwerkRow />
     </div>
 
     <!-- Sägezahn-Border unten -->
