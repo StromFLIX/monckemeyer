@@ -2,7 +2,12 @@
 import { ref, onMounted, onUnmounted } from 'vue'
 const scrolled = ref(false)
 const open = ref(false)
-const onScroll = () => { scrolled.value = window.scrollY > 20 }
+// Hysterese: erst ab 40px scrolled=true, erst unter 10px wieder false
+const onScroll = () => {
+  const y = window.scrollY
+  if (!scrolled.value && y > 40) scrolled.value = true
+  else if (scrolled.value && y < 10) scrolled.value = false
+}
 onMounted(() => { window.addEventListener('scroll', onScroll, { passive: true }); onScroll() })
 onUnmounted(() => window.removeEventListener('scroll', onScroll))
 const nav = [
@@ -21,9 +26,9 @@ const nav = [
     ]"
   >
     <div class="max-w-6xl mx-auto px-4 md:px-6 py-2 md:py-3 flex items-center gap-4">
-      <a href="#top" class="flex items-center gap-3 shrink-0">
+      <a href="#top" class="flex items-center gap-3 shrink-0 origin-left">
         <img src="/logo.png" alt="Mönckemeyer – Taschen & Reise"
-             :class="['w-auto transition-all duration-200', scrolled ? 'h-12 md:h-14' : 'h-16 md:h-20']" />
+             :class="['h-16 md:h-20 w-auto transition-transform duration-200 origin-left', scrolled ? 'scale-[0.72] md:scale-[0.75]' : 'scale-100']" />
       </a>
       <nav class="hidden md:flex items-center gap-7 mx-auto">
         <a v-for="n in nav" :key="n.href" :href="n.href"
