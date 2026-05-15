@@ -56,32 +56,20 @@ import TimberPattern from './TimberPattern.vue'
         </div>
       </div>
 
-      <!-- Illustration: Koffer + Tasche -->
+      <!-- Team-Foto: Polaroid -->
       <div class="md:col-span-5 relative hidden sm:block">
-        <div class="timber-frame p-6 md:p-8 rotate-1">
-          <svg viewBox="0 0 320 320" class="w-full h-auto" aria-label="Reisetasche und Koffer">
-            <!-- Hintergrundkreis -->
-            <circle cx="160" cy="160" r="140" fill="#e8b923" opacity="0.25"/>
-            <!-- Koffer -->
-            <g transform="translate(40,90)">
-              <rect x="0" y="20" width="160" height="120" rx="14" fill="#a0522d" stroke="#2a1a12" stroke-width="4"/>
-              <rect x="0" y="60" width="160" height="10" fill="#7a3d20"/>
-              <rect x="60" y="0" width="40" height="24" rx="4" fill="none" stroke="#2a1a12" stroke-width="4"/>
-              <circle cx="20" cy="150" r="8" fill="#2a1a12"/>
-              <circle cx="140" cy="150" r="8" fill="#2a1a12"/>
-              <rect x="70" y="80" width="20" height="6" rx="2" fill="#e8b923"/>
-            </g>
-            <!-- Tasche im Vordergrund -->
-            <g transform="translate(150,150)">
-              <path d="M10 40 Q 10 20 30 20 L 110 20 Q 130 20 130 40 L 130 120 Q 130 140 110 140 L 30 140 Q 10 140 10 120 Z"
-                    fill="#b3252b" stroke="#2a1a12" stroke-width="4"/>
-              <path d="M45 22 Q 45 0 70 0 Q 95 0 95 22" fill="none" stroke="#2a1a12" stroke-width="4" stroke-linecap="round"/>
-              <rect x="60" y="60" width="20" height="14" rx="3" fill="#e8b923" stroke="#2a1a12" stroke-width="3"/>
-            </g>
-          </svg>
-          <div class="absolute -top-4 -right-4 bg-ratred text-plaster font-hand text-2xl px-4 py-1 rounded-full rotate-6 border-2 border-timber shadow-soft">
-            herzlich willkommen!
-          </div>
+        <figure class="polaroid-hero rotate-1">
+          <img src="/team/team.jpg" alt="Das Team von Mönckemeyer im Geschäft in der Osterstraße"
+               loading="eager" class="block w-full h-auto aspect-[16/10] object-cover" />
+          <figcaption class="font-hand text-2xl text-timber text-center pt-3 pb-1 px-3">
+            Familie Mönckemeyer &amp; Team
+          </figcaption>
+        </figure>
+        <div class="absolute -top-4 -right-4 bg-ratred text-plaster font-hand text-2xl px-4 py-1 rounded-full rotate-6 border-2 border-timber shadow-soft">
+          herzlich willkommen!
+        </div>
+        <div class="absolute -bottom-3 -left-3 bg-ratgold text-timber font-hand text-lg px-3 py-1 rounded-full -rotate-3 border-2 border-timber shadow-soft">
+          5. Generation
         </div>
       </div>
     </div>
@@ -90,3 +78,12 @@ import TimberPattern from './TimberPattern.vue'
     <div class="absolute bottom-0 left-0 right-0 h-3 bg-timber"></div>
   </section>
 </template>
+
+<style scoped>
+.polaroid-hero {
+  background: #f6ecd6;
+  padding: 12px 12px 6px;
+  border: 2px solid #2a1a12;
+  box-shadow: 10px 10px 0 0 rgba(42,26,18,0.55);
+}
+</style>
