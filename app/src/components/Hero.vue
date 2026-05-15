@@ -56,19 +56,19 @@ import TimberPattern from './TimberPattern.vue'
         </div>
       </div>
 
-      <!-- Team-Foto: Polaroid -->
-      <div class="md:col-span-5 relative hidden sm:block">
+      <!-- Team-Foto: Polaroid (mobil oben, desktop rechts) -->
+      <div class="md:col-span-5 relative order-first md:order-none mx-auto md:mx-0 max-w-[320px] sm:max-w-[420px] md:max-w-none w-full">
         <figure class="polaroid-hero rotate-1">
           <img src="/team/team.jpg" alt="Das Team von Mönckemeyer im Geschäft in der Osterstraße"
                loading="eager" class="block w-full h-auto aspect-[16/10] object-cover" />
-          <figcaption class="font-hand text-2xl text-timber text-center pt-3 pb-1 px-3">
+          <figcaption class="font-hand text-xl md:text-2xl text-timber text-center pt-2 md:pt-3 pb-1 px-3">
             Familie Mönckemeyer &amp; Team
           </figcaption>
         </figure>
-        <div class="absolute -top-4 -right-4 bg-ratred text-plaster font-hand text-2xl px-4 py-1 rounded-full rotate-6 border-2 border-timber shadow-soft">
+        <div class="absolute -top-3 -right-3 md:-top-4 md:-right-4 bg-ratred text-plaster font-hand text-lg md:text-2xl px-3 md:px-4 py-1 rounded-full rotate-6 border-2 border-timber shadow-soft">
           herzlich willkommen!
         </div>
-        <div class="absolute -bottom-3 -left-3 bg-ratgold text-timber font-hand text-lg px-3 py-1 rounded-full -rotate-3 border-2 border-timber shadow-soft">
+        <div class="absolute -bottom-3 -left-3 bg-ratgold text-timber font-hand text-base md:text-lg px-3 py-1 rounded-full -rotate-3 border-2 border-timber shadow-soft">
           5. Generation
         </div>
       </div>
