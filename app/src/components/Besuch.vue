@@ -65,7 +65,7 @@ const todayHours = hours[todayIdx]
             <div>
               <h3 class="font-display text-lg md:text-xl font-black text-timber">Öffnungszeiten</h3>
               <p class="text-sm mt-0.5">
-                <span class="font-hand text-ratred text-lg">heute&nbsp;·</span>
+                <span class="font-hand text-tealDark text-lg">heute&nbsp;·</span>
                 <span :class="todayHours.closed ? 'text-timber/60' : 'text-timber font-semibold'">
                   {{ todayHours.t }}
                 </span>
@@ -79,8 +79,8 @@ const todayHours = hours[todayIdx]
 
           <ul v-show="showAllHours" class="mt-3 divide-y divide-timber/15 border-t border-timber/15">
             <li v-for="(h, i) in hours" :key="h.d"
-                :class="['flex justify-between py-2 text-sm md:text-base', i === todayIdx ? 'font-bold text-ratred' : 'text-timber/85']">
-              <span>{{ h.d }}<span v-if="i === todayIdx" class="ml-2 font-hand text-ratred">←</span></span>
+                :class="['flex justify-between py-2 text-sm md:text-base', i === todayIdx ? 'font-bold text-tealDark' : 'text-timber/85']">
+              <span>{{ h.d }}<span v-if="i === todayIdx" class="ml-2 font-hand text-tealDark">←</span></span>
               <span>{{ h.t }}</span>
             </li>
           </ul>
@@ -88,20 +88,20 @@ const todayHours = hours[todayIdx]
         </div>
 
         <div class="mt-6 space-y-2 text-timber">
-          <a href="tel:+495151941390" class="flex items-center gap-3 hover:text-ratred transition-colors">
+          <a href="tel:+495151941390" class="flex items-center gap-3 hover:text-tealDark transition-colors">
             <span class="w-9 h-9 rounded-full bg-timber text-plaster flex items-center justify-center shrink-0">
               <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></svg>
             </span>
             <span class="font-semibold">05151 941390</span>
           </a>
-          <a href="mailto:info@moenckemeyer.de" class="flex items-center gap-3 hover:text-ratred transition-colors">
+          <a href="mailto:info@moenckemeyer.de" class="flex items-center gap-3 hover:text-tealDark transition-colors">
             <span class="w-9 h-9 rounded-full bg-timber text-plaster flex items-center justify-center shrink-0">
               <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
             </span>
             <span class="font-semibold">info@moenckemeyer.de</span>
           </a>
           <a href="https://maps.google.com/?cid=15851398925698667241" target="_blank" rel="noopener"
-             class="flex items-center gap-3 hover:text-ratred transition-colors">
+             class="flex items-center gap-3 hover:text-tealDark transition-colors">
             <span class="w-9 h-9 rounded-full bg-timber text-plaster flex items-center justify-center shrink-0">
               <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s7-7.5 7-13a7 7 0 1 0-14 0c0 5.5 7 13 7 13Z"/><circle cx="12" cy="9" r="2.5"/></svg>
             </span>

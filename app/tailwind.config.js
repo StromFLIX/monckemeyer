@@ -12,6 +12,8 @@ export default {
         ratredDark: '#8c1c21',
         ratgold:  '#e8b923',
         teal:     '#2aa39a',
+        tealDark: '#1f7c75',
+        tealSoft: '#e0f0ee',
         ink:      '#1a1208'
       },
       fontFamily: {

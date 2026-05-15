@@ -15,13 +15,13 @@ const services = [
         <h2 class="section-title">Service, so individuell wie du.</h2>
       </div>
 
-      <div class="mt-10 md:mt-12 grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
+      <div class="mt-10 md:mt-12 grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-5">
         <component v-for="s in services" :key="s.title"
           :is="s.href ? 'a' : 'div'"
           :href="s.href" :target="s.href ? '_blank' : null" :rel="s.href ? 'noopener' : null"
-          class="bg-plaster border-2 border-timber rounded-xl p-4 md:p-6 flex flex-col gap-2 md:gap-3 hover:-translate-y-1 transition-transform"
+          class="min-w-0 bg-plaster border-2 border-timber rounded-xl p-3 md:p-6 flex flex-col gap-2 md:gap-3 hover:-translate-y-1 transition-transform"
           :style="{ boxShadow: '5px 5px 0 0 #2a1a12' }">
-          <div class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-ratred text-plaster flex items-center justify-center">
+          <div class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-teal text-plaster flex items-center justify-center">
             <svg class="w-5 h-5 md:w-6 md:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
               <template v-if="s.icon === 'chat'"><path d="M4 5h16v11H8l-4 4Z"/></template>
               <template v-else-if="s.icon === 'wrench'"><path d="M14 7a4 4 0 1 0 5 5l-9 9-3-3 9-9Z"/></template>
@@ -29,8 +29,8 @@ const services = [
               <template v-else><circle cx="11" cy="11" r="6"/><path d="M20 20l-4-4"/></template>
             </svg>
           </div>
-          <h3 class="font-display text-lg md:text-xl font-black text-timber leading-tight">{{ s.title }}</h3>
-          <p class="text-xs md:text-sm text-timber/75 leading-snug">{{ s.desc }}</p>
+          <h3 class="font-display text-base sm:text-lg md:text-xl font-black text-timber leading-tight break-words hyphens-auto" lang="de">{{ s.title }}</h3>
+          <p class="text-xs md:text-sm text-timber/75 leading-snug break-words">{{ s.desc }}</p>
         </component>
       </div>
     </div>

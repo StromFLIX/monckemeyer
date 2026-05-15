@@ -13,7 +13,7 @@ import FachwerkRow from './FachwerkRow.vue'
       <div class="md:col-span-7">
         <span class="eyebrow">seit 1879 · 5. Generation</span>
         <h1 class="text-4xl sm:text-5xl md:text-7xl font-display font-black leading-[0.95] text-timber">
-          Taschen <span class="text-ratred">&amp;</span> Reise.<br/>
+          Taschen <span class="text-teal">&amp;</span> Reise.<br/>
           <span class="relative inline-block">
             Im Herzen von Hameln.
             <svg class="absolute -bottom-3 left-0 w-full" height="14" viewBox="0 0 300 14" preserveAspectRatio="none" aria-hidden="true">

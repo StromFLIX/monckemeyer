@@ -26,9 +26,9 @@ const nav = [
       </a>
       <nav class="hidden md:flex items-center gap-7 mx-auto">
         <a v-for="n in nav" :key="n.href" :href="n.href"
-           class="font-semibold text-timber hover:text-ratred transition-colors relative group">
+           class="font-semibold text-timber hover:text-tealDark transition-colors relative group">
           {{ n.label }}
-          <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-ratred transition-all group-hover:w-full"></span>
+          <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-teal transition-all group-hover:w-full"></span>
         </a>
       </nav>
       <a href="https://moenckemeyer.bagmondo.de/products" target="_blank" rel="noopener"

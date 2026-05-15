@@ -20,7 +20,7 @@
   .btn {
     @apply inline-flex items-center gap-2 px-5 py-3 rounded-md font-semibold tracking-wide transition-all duration-150 border-2 border-timber;
   }
-  .btn-primary { @apply btn bg-ratred text-plaster hover:bg-ratredDark active:translate-y-0.5; box-shadow: 0 5px 0 0 #2a1a12; }
+  .btn-primary { @apply btn bg-teal text-plaster hover:bg-tealDark active:translate-y-0.5; box-shadow: 0 5px 0 0 #2a1a12; }
   .btn-primary:active { box-shadow: 0 0 0 0 #2a1a12; }
   .btn-secondary { @apply btn bg-plaster text-timber hover:bg-plasterDark active:translate-y-0.5; box-shadow: 0 5px 0 0 #2a1a12; }
   .btn-secondary:active { box-shadow: 0 0 0 0 #2a1a12; }
@@ -39,7 +39,7 @@
     @apply text-3xl md:text-5xl font-display font-black text-timber;
   }
   .eyebrow {
-    @apply inline-block font-hand text-2xl text-ratred -rotate-2 mb-2;
+    @apply inline-block font-hand text-2xl text-tealDark -rotate-2 mb-2;
   }
 }
 
@@ -61,12 +61,12 @@
   transition: transform 0.15s ease;
 }
 .moe-pin-inner:hover { transform: translateY(-2px); }
-.moe-pin-inner:hover .moe-pin-pill { background: #8c1c21; box-shadow: 3px 3px 0 0 #2a1a12; }
+.moe-pin-inner:hover .moe-pin-pill { background: #1f7c75; box-shadow: 3px 3px 0 0 #2a1a12; }
 .moe-pin-pill {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  background: #b3252b;
+  background: #2aa39a;
   color: #f6ecd6;
   border: 2px solid #2a1a12;
   border-radius: 999px;

@@ -2,12 +2,12 @@
 import { ref, computed } from 'vue'
 const shopUrl = 'https://moenckemeyer.bagmondo.de/products'
 const items = [
-  { key: 'reise',    title: 'Reisegepäck',  desc: 'Koffer, Trolleys, Weekender – für jede Tour.', color: 'bg-ratred',   text: 'text-plaster' },
-  { key: 'rucks',    title: 'Rucksäcke',    desc: 'Stadt, Uni, Outdoor & Business.',              color: 'bg-cognac',   text: 'text-plaster' },
-  { key: 'damen',    title: 'Damentaschen', desc: 'Klassiker bis Statement – top Labels.',         color: 'bg-ratgold',  text: 'text-timber'  },
-  { key: 'herren',   title: 'Herrentaschen',desc: 'Umhänge-, Kurier- und Schultertaschen.',        color: 'bg-teal',     text: 'text-plaster' },
-  { key: 'business', title: 'Business',     desc: 'Aktentaschen, Laptopcases, Organizer.',         color: 'bg-timber',   text: 'text-plaster' },
-  { key: 'klein',    title: 'Geldbörsen & Kleinleder', desc: 'Portemonnaies, Etuis, Accessoires.', color: 'bg-plasterDark', text: 'text-timber' }
+  { key: 'reise',    title: 'Reisegepäck',  desc: 'Koffer, Trolleys, Weekender – für jede Tour.', color: 'bg-teal',        text: 'text-plaster' },
+  { key: 'rucks',    title: 'Rucksäcke',    desc: 'Stadt, Uni, Outdoor & Business.',              color: 'bg-cognac',      text: 'text-plaster' },
+  { key: 'damen',    title: 'Damentaschen', desc: 'Klassiker bis Statement – top Labels.',       color: 'bg-plaster',     text: 'text-timber'  },
+  { key: 'herren',   title: 'Herrentaschen',desc: 'Umhänge-, Kurier- und Schultertaschen.',      color: 'bg-tealDark',    text: 'text-plaster' },
+  { key: 'business', title: 'Business',     desc: 'Aktentaschen, Laptopcases, Organizer.',       color: 'bg-timber',      text: 'text-plaster' },
+  { key: 'klein',    title: 'Geldbörsen & Kleinleder', desc: 'Portemonnaies, Etuis, Accessoires.', color: 'bg-plasterDark', text: 'text-timber'  }
 ]
 
 const expanded = ref(false)
@@ -35,9 +35,9 @@ onUnmounted(() => window.removeEventListener('resize', updateIsMobile))
       <div class="mt-8 md:mt-12 grid grid-cols-2 lg:grid-cols-3 gap-3 md:gap-5">
         <a v-for="it in visibleItems" :key="it.key"
            :href="shopUrl" target="_blank" rel="noopener"
-           :class="['group relative rounded-xl border-2 border-timber overflow-hidden p-5 md:p-6 min-h-[120px] md:min-h-[180px] flex flex-col justify-between transition-transform hover:-translate-y-1', it.color, it.text]"
+           :class="['group relative min-w-0 rounded-xl border-2 border-timber overflow-hidden p-4 md:p-6 min-h-[120px] md:min-h-[180px] flex flex-col justify-between transition-transform hover:-translate-y-1', it.color, it.text]"
            :style="{ boxShadow: '5px 5px 0 0 #2a1a12' }">
-          <h3 class="font-display text-xl md:text-2xl font-black leading-tight">{{ it.title }}</h3>
+          <h3 class="font-display text-lg sm:text-xl md:text-2xl font-black leading-tight break-words hyphens-auto" lang="de">{{ it.title }}</h3>
           <div>
             <p class="text-sm opacity-90 hidden md:block">{{ it.desc }}</p>
             <div class="mt-2 md:mt-3 flex items-center gap-2 font-semibold text-sm">
