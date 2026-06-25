@@ -1,4 +1,35 @@
 <script setup>
+import { computed } from 'vue'
+
+const hours = [
+  '10:00 – 18:00', // Mo
+  '10:00 – 18:00', // Di
+  '10:00 – 18:00', // Mi
+  '10:00 – 18:00', // Do
+  '10:00 – 18:00', // Fr
+  '10:00 – 17:00', // Sa
+  null             // So – geschlossen
+]
+
+const status = computed(() => {
+  const now = new Date()
+  const idx = (now.getDay() + 6) % 7 // Mo=0 … So=6
+  const range = hours[idx]
+  if (!range) return { open: false, label: 'heute geschlossen' }
+
+  const [openStr, closeStr] = range.split('–').map(s => s.trim())
+  const toMin = t => {
+    const [h, m] = t.split(':').map(Number)
+    return h * 60 + m
+  }
+  const nowMin = now.getHours() * 60 + now.getMinutes()
+  const openMin = toMin(openStr)
+  const closeMin = toMin(closeStr)
+
+  if (nowMin < openMin) return { open: false, label: `heute ab ${openStr} Uhr` }
+  if (nowMin >= closeMin) return { open: false, label: 'heute geschlossen' }
+  return { open: true, label: `heute geöffnet bis ${closeStr.replace(':00', '')}\u00A0Uhr` }
+})
 </script>
 
 <template>
@@ -31,10 +62,13 @@
           </a>
         </div>
 
-        <p class="mt-8 text-sm text-muted">
-          <span class="inline-block w-2 h-2 rounded-full bg-accent align-middle mr-2"></span>
-          heute geöffnet bis 18&nbsp;Uhr
-        </p>
+        <a href="#besuch" class="group mt-8 inline-flex items-center text-sm text-muted hover:text-ink transition-colors">
+          <span :class="['inline-block w-2 h-2 rounded-full align-middle mr-2', status.open ? 'bg-accent' : 'bg-muted/50']"></span>
+          {{ status.label }}
+          <svg class="w-3.5 h-3.5 ml-1.5 opacity-60 group-hover:translate-x-0.5 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
       </div>
 
       <!-- Team-Foto: clean, rounded, ohne Frame -->
