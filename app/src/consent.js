@@ -41,8 +41,12 @@ function loadAnalytics() {
   } catch {
     /* ignorieren */
   }
-  // Haupt-Tracking
-  injectScript({ src: `${HOST}/script.js`, 'data-website-id': WEBSITE_ID })
+  // Haupt-Tracking inkl. Performance-Messung (Web Vitals: TTFB, FCP, LCP, CLS, INP)
+  injectScript({
+    src: `${HOST}/script.js`,
+    'data-website-id': WEBSITE_ID,
+    'data-performance': 'true'
+  })
   // Session Replay
   injectScript({
     src: `${HOST}/recorder.js`,
