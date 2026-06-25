@@ -1,5 +1,6 @@
 <script setup>
 import LegalPage from './LegalPage.vue'
+import { consent, grantConsent, denyConsent } from '../consent'
 </script>
 
 <template>
@@ -76,7 +77,47 @@ import LegalPage from './LegalPage.vue'
     </p>
     <p>Rechtsgrundlage für die Verarbeitung ist Art. 6 Abs. 1 lit. f DS-GVO.</p>
 
-    <h2>V. Kontaktaufnahme per E-Mail / Telefon</h2>
+    <h2>V. Webanalyse mit Umami (Einwilligung)</h2>
+    <p>
+      Zur statistischen Auswertung der Nutzung unserer Webseite setzen wir <strong>Umami</strong> ein,
+      eine datenschutzfreundliche, cookielose Analyse-Software, die wir auf eigener Infrastruktur
+      (<a href="https://umami.stromflix.com" target="_blank" rel="noopener">umami.stromflix.com</a>) betreiben.
+      Umami erhebt anonymisierte Nutzungsdaten (u.&nbsp;a. aufgerufene Seiten, Klick-Ereignisse, ungefähre
+      Herkunft, Browser- und Gerätetyp) und verwendet hierfür <strong>keine Cookies</strong>; IP-Adressen
+      werden anonymisiert und nicht gespeichert.
+    </p>
+    <p>
+      Zusätzlich nutzen wir eine <strong>anonymisierte Sitzungsaufzeichnung (Session Replay)</strong>, bei
+      der nur ein Bruchteil der Besuche (Stichprobe) erfasst und Eingaben sowie persönliche Inhalte
+      automatisch maskiert werden. Damit lassen sich Bedienprobleme erkennen, ohne einzelne Personen zu
+      identifizieren.
+    </p>
+    <p>
+      Die Verarbeitung erfolgt ausschließlich auf Grundlage Ihrer <strong>Einwilligung</strong>
+      (Art. 6 Abs. 1 lit. a DS-GVO, § 25 Abs. 1 TTDSG). Ohne Ihre Zustimmung werden die hierfür nötigen
+      Skripte gar nicht erst geladen. Sie können Ihre Einwilligung jederzeit mit Wirkung für die Zukunft
+      widerrufen oder nachträglich erteilen:
+    </p>
+    <div class="not-prose my-5 flex flex-wrap items-center gap-3">
+      <button type="button" @click="grantConsent"
+              :disabled="consent === 'granted'"
+              class="px-5 py-2 rounded-full text-sm font-semibold bg-accent text-paper hover:bg-accentDark transition-colors disabled:opacity-50 disabled:cursor-default">
+        Analyse erlauben
+      </button>
+      <button type="button" @click="denyConsent"
+              :disabled="consent === 'denied'"
+              class="px-5 py-2 rounded-full text-sm font-semibold border border-line text-ink hover:border-ink transition-colors disabled:opacity-50 disabled:cursor-default">
+        Analyse ablehnen
+      </button>
+      <span class="text-sm text-muted">
+        Aktueller Status:
+        <strong v-if="consent === 'granted'" class="text-accent">erlaubt</strong>
+        <strong v-else-if="consent === 'denied'" class="text-ink">abgelehnt</strong>
+        <strong v-else class="text-ink">noch keine Auswahl</strong>
+      </span>
+    </div>
+
+    <h2>VI. Kontaktaufnahme per E-Mail / Telefon</h2>
     <p>
       Sie können uns über die angegebene E-Mail-Adresse oder telefonisch kontaktieren. Bei einer
       Kontaktaufnahme per E-Mail werden die uns übermittelten personenbezogenen Daten gespeichert und
@@ -84,7 +125,7 @@ import LegalPage from './LegalPage.vue'
       DS-GVO. Die Daten werden gelöscht, sobald die Speicherung nicht mehr erforderlich ist.
     </p>
 
-    <h2>VI. Einbindung externer Dienste</h2>
+    <h2>VII. Einbindung externer Dienste</h2>
     <p>
       Auf dieser Webseite werden Karten von <strong>OpenStreetMap</strong> (OpenStreetMap Foundation,
       St John's Innovation Centre, Cowley Road, Cambridge, CB4 0WS, Vereinigtes Königreich) eingebunden.
@@ -98,13 +139,13 @@ import LegalPage from './LegalPage.vue'
     </p>
     <p>Rechtsgrundlage ist jeweils Art. 6 Abs. 1 lit. f DS-GVO.</p>
 
-    <h2>VII. Routinemäßige Löschung und Sperrung</h2>
+    <h2>VIII. Routinemäßige Löschung und Sperrung</h2>
     <p>
       Wir verarbeiten und speichern Ihre personenbezogenen Daten nur für den Zeitraum, der zur Erreichung
       des Speicherungszwecks erforderlich ist oder sofern gesetzliche Aufbewahrungspflichten bestehen.
     </p>
 
-    <h2>VIII. Widerspruchsrecht (Art. 21 DS-GVO)</h2>
+    <h2>IX. Widerspruchsrecht (Art. 21 DS-GVO)</h2>
     <p>
       Wenn wir Ihre personenbezogenen Daten aufgrund unseres überwiegenden berechtigten Interesses nach
       Art. 6 Abs. 1 lit. f DS-GVO verarbeiten, haben Sie aus Gründen, die sich aus Ihrer besonderen

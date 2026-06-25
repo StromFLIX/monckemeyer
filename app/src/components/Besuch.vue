@@ -17,7 +17,7 @@ onMounted(() => {
   const icon = L.divIcon({
     className: 'moe-pin',
     html: `
-      <a class="moe-pin-inner" href="${mapsUrl}" target="_blank" rel="noopener" title="In Google Maps öffnen">
+      <a class="moe-pin-inner" href="${mapsUrl}" target="_blank" rel="noopener" title="In Google Maps öffnen" data-umami-event="karte-pin">
         <span class="moe-pin-pill">
           Mönckemeyer
           <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -61,6 +61,7 @@ const todayHours = hours[todayIdx]
         <div class="mt-8 bg-paper border border-line rounded-2xl p-5 md:p-6">
           <button
             @click="showAllHours = !showAllHours"
+            data-umami-event="oeffnungszeiten-toggle"
             class="w-full flex items-center justify-between text-left">
             <div>
               <h3 class="font-display text-lg md:text-xl font-medium text-ink">Öffnungszeiten</h3>
@@ -88,20 +89,23 @@ const todayHours = hours[todayIdx]
         </div>
 
         <div class="mt-6 space-y-3 text-ink">
-          <a href="tel:+495151941390" class="flex items-center gap-3 hover:text-accent transition-colors">
+          <a href="tel:+495151941390" class="flex items-center gap-3 hover:text-accent transition-colors"
+             data-umami-event="kontakt-telefon">
             <span class="w-9 h-9 rounded-full bg-accentSoft text-accent flex items-center justify-center shrink-0">
               <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></svg>
             </span>
             <span class="font-medium">05151 941390</span>
           </a>
-          <a href="mailto:info@moenckemeyer.de" class="flex items-center gap-3 hover:text-accent transition-colors">
+          <a href="mailto:info@moenckemeyer.de" class="flex items-center gap-3 hover:text-accent transition-colors"
+             data-umami-event="kontakt-email">
             <span class="w-9 h-9 rounded-full bg-accentSoft text-accent flex items-center justify-center shrink-0">
               <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
             </span>
             <span class="font-medium">info@moenckemeyer.de</span>
           </a>
           <a href="https://maps.google.com/?cid=15851398925698667241" target="_blank" rel="noopener"
-             class="flex items-center gap-3 hover:text-accent transition-colors">
+             class="flex items-center gap-3 hover:text-accent transition-colors"
+             data-umami-event="kontakt-adresse">
             <span class="w-9 h-9 rounded-full bg-accentSoft text-accent flex items-center justify-center shrink-0">
               <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s7-7.5 7-13a7 7 0 1 0-14 0c0 5.5 7 13 7 13Z"/><circle cx="12" cy="9" r="2.5"/></svg>
             </span>

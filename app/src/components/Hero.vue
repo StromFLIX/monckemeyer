@@ -47,13 +47,14 @@ const status = computed(() => {
         </p>
 
         <div class="mt-8 flex flex-wrap gap-3">
-          <a href="https://moenckemeyer.bagmondo.de/products" target="_blank" rel="noopener" class="btn-primary">
+          <a href="https://moenckemeyer.bagmondo.de/products" target="_blank" rel="noopener" class="btn-primary"
+             data-umami-event="shop-cta" data-umami-event-location="hero">
             Zum Online-Shop
             <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
               <path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </a>
-          <a href="#besuch" class="btn-ghost">
+          <a href="#besuch" class="btn-ghost" data-umami-event="hero-besuch-uns">
             <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
               <path d="M12 22s7-7.5 7-13a7 7 0 1 0-14 0c0 5.5 7 13 7 13Z" stroke-linejoin="round"/>
               <circle cx="12" cy="9" r="2.5"/>
@@ -62,7 +63,8 @@ const status = computed(() => {
           </a>
         </div>
 
-        <a href="#besuch" class="group mt-8 inline-flex items-center text-sm text-muted hover:text-ink transition-colors">
+        <a href="#besuch" class="group mt-8 inline-flex items-center text-sm text-muted hover:text-ink transition-colors"
+           data-umami-event="hero-oeffnungszeiten" :data-umami-event-status="status.open ? 'offen' : 'geschlossen'">
           <span :class="['inline-block w-2 h-2 rounded-full align-middle mr-2', status.open ? 'bg-accent' : 'bg-muted/50']"></span>
           {{ status.label }}
           <svg class="w-3.5 h-3.5 ml-1.5 opacity-60 group-hover:translate-x-0.5 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">

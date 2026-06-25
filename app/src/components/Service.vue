@@ -22,6 +22,7 @@ const services = [
         <component v-for="s in services" :key="s.title"
           :is="s.href ? 'a' : 'div'"
           :href="s.href" :target="s.href ? '_blank' : null" :rel="s.href ? 'noopener' : null"
+          data-umami-event="service" :data-umami-event-service="s.title"
           class="min-w-0 bg-paper border border-line rounded-2xl p-6 flex flex-col gap-3 transition-all duration-200 hover:border-ink hover:shadow-card">
           <div class="w-10 h-10 rounded-full bg-accentSoft text-accent flex items-center justify-center">
             <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">

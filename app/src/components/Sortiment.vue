@@ -27,6 +27,7 @@ const items = [
       <div class="mt-10 md:mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
         <a v-for="it in items" :key="it.key"
            :href="it.href" target="_blank" rel="noopener"
+           data-umami-event="sortiment-kategorie" :data-umami-event-kategorie="it.title"
            class="group relative min-w-0 bg-paper border border-line rounded-2xl p-6 md:p-7 flex flex-col gap-3 transition-all duration-200 hover:border-ink hover:shadow-card">
           <h3 class="font-display text-xl md:text-2xl font-medium text-ink leading-tight">{{ it.title }}</h3>
           <p class="text-sm text-muted leading-relaxed">{{ it.desc }}</p>
@@ -40,7 +41,8 @@ const items = [
       </div>
 
       <div class="mt-12 text-center">
-        <a :href="shopUrl" target="_blank" rel="noopener" class="btn-ghost">
+        <a :href="shopUrl" target="_blank" rel="noopener" class="btn-ghost"
+           data-umami-event="shop-cta" data-umami-event-location="sortiment-alle-marken">
           Alle Marken im Shop ansehen
           <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
             <path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/>

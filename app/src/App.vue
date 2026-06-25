@@ -10,6 +10,7 @@ import Social from './components/Social.vue'
 import FooterBar from './components/FooterBar.vue'
 import ImpressumPage from './components/ImpressumPage.vue'
 import DatenschutzPage from './components/DatenschutzPage.vue'
+import ConsentBanner from './components/ConsentBanner.vue'
 
 const year = new Date().getFullYear()
 const hash = ref(window.location.hash)
@@ -24,6 +25,16 @@ const route = computed(() => {
 })
 
 watch(route, () => window.scrollTo(0, 0))
+
+// Track hash-based route changes as pageviews in Umami
+watch(hash, () => {
+  if (typeof window !== 'undefined' && window.umami) {
+    window.umami.track(props => ({
+      ...props,
+      url: window.location.pathname + window.location.search + window.location.hash
+    }))
+  }
+})
 </script>
 
 <template>
@@ -41,4 +52,5 @@ watch(route, () => window.scrollTo(0, 0))
     <DatenschutzPage v-else-if="route === 'datenschutz'" />
   </main>
   <FooterBar :year="year" />
+  <ConsentBanner />
 </template>

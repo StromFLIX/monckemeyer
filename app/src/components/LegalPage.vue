@@ -10,6 +10,7 @@ onMounted(() => window.scrollTo(0, 0))
   <article class="bg-paper border-b border-line">
     <div class="max-w-3xl mx-auto px-4 md:px-6 py-12 md:py-20">
       <a href="#" @click.prevent="back"
+         data-umami-event="legal-zurueck"
          class="inline-flex items-center gap-2 text-sm font-medium text-muted hover:text-accent mb-8 transition-colors">
         <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
           <path d="M15 6l-6 6 6 6" stroke-linecap="round" stroke-linejoin="round"/>

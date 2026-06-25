@@ -17,6 +17,7 @@ const socials = [
 
       <div class="mt-10 md:mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
         <a v-for="s in socials" :key="s.name" :href="s.url" target="_blank" rel="noopener"
+           data-umami-event="social" :data-umami-event-platform="s.name"
            class="group relative bg-paper border border-line rounded-2xl p-6 flex items-center gap-4 transition-all duration-200 hover:border-ink hover:shadow-card">
           <div class="w-12 h-12 rounded-full bg-accentSoft text-accent flex items-center justify-center shrink-0">
             <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
