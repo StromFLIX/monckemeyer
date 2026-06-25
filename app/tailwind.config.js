@@ -3,29 +3,42 @@ export default {
   theme: {
     extend: {
       colors: {
-        timber:   '#2a1a12',
-        plaster:  '#f6ecd6',
+        // Cleane Neutrale (warm)
+        paper:     '#fafaf7',  // sehr leicht warmes Off-White (Haupt-Hintergrund)
+        cream:     '#f4eee2',  // sanftes Cream (sekundäre Flächen)
+        creamDark: '#e9e1ce',  // etwas dunklere Variante
+        ink:       '#1a1410',  // Espresso-Braun für Text
+        inkSoft:   '#3a312a',  // wenn etwas weicher gebraucht wird
+        muted:     '#6e655c',  // Sekundärtext
+        line:      '#e6dfd1',  // Hairline-Borders
+        // Akzent (sparsam)
+        accent:    '#2f6e6a',  // gedämpftes Petrol
+        accentDark:'#214f4c',
+        accentSoft:'#e7efed',
+        // Legacy-Tokens (werden noch von ein paar Komponenten benutzt, behalten zur Sicherheit)
+        timber:    '#2a1a12',
+        plaster:   '#f6ecd6',
         plasterDark: '#ecdfc1',
-        cognac:   '#a0522d',
-        cognacDark: '#7a3d20',
-        ratred:   '#b3252b',
-        ratredDark: '#8c1c21',
-        ratgold:  '#e8b923',
-        teal:     '#2aa39a',
-        tealDark: '#1f7c75',
-        tealSoft: '#e0f0ee',
-        ink:      '#1a1208'
+        teal:      '#2aa39a',
+        tealDark:  '#1f7c75',
+        tealSoft:  '#e0f0ee',
+        cognac:    '#a0522d',
+        ratred:    '#b3252b',
+        ratgold:   '#e8b923'
       },
       fontFamily: {
         display: ['Fraunces', 'Georgia', 'serif'],
-        body: ['Inter', 'system-ui', 'sans-serif'],
-        hand: ['Caveat', 'cursive']
+        body:    ['Inter', 'system-ui', 'sans-serif']
       },
       boxShadow: {
-        timber: '0 6px 0 0 #2a1a12',
-        soft: '0 10px 30px -10px rgba(42,26,18,0.35)'
+        card:  '0 1px 2px rgba(26,20,16,0.04), 0 8px 24px -12px rgba(26,20,16,0.18)',
+        hover: '0 2px 4px rgba(26,20,16,0.06), 0 18px 36px -16px rgba(26,20,16,0.22)'
+      },
+      letterSpacing: {
+        eyebrow: '0.14em'
       }
     }
   },
   plugins: []
 }
+

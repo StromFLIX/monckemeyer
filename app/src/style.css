@@ -4,49 +4,67 @@
 
 @layer base {
   html { scroll-behavior: smooth; overflow-x: hidden; }
-  body { overflow-x: hidden; }
   body {
-    background-color: #f6ecd6;
-    background-image:
-      radial-gradient(rgba(42,26,18,0.05) 1px, transparent 1px),
-      radial-gradient(rgba(42,26,18,0.04) 1px, transparent 1px);
-    background-size: 22px 22px, 22px 22px;
-    background-position: 0 0, 11px 11px;
+    overflow-x: hidden;
+    background-color: #fafaf7;
+    color: #1a1410;
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
   }
-  h1,h2,h3 { font-family: 'Fraunces', Georgia, serif; letter-spacing: -0.01em; }
+  h1, h2, h3, h4 {
+    font-family: 'Fraunces', Georgia, serif;
+    letter-spacing: -0.015em;
+    color: #1a1410;
+  }
+  ::selection { background: #2f6e6a; color: #fafaf7; }
 }
 
 @layer components {
+  /* Buttons – cleaner, ohne harten Offset-Shadow */
   .btn {
-    @apply inline-flex items-center gap-2 px-5 py-3 rounded-md font-semibold tracking-wide transition-all duration-150 border-2 border-timber;
+    @apply inline-flex items-center justify-center gap-2 px-5 py-3 rounded-md font-semibold text-[15px] tracking-tight transition-colors duration-150;
   }
-  .btn-primary { @apply btn bg-teal text-plaster hover:bg-tealDark active:translate-y-0.5; box-shadow: 0 5px 0 0 #2a1a12; }
-  .btn-primary:active { box-shadow: 0 0 0 0 #2a1a12; }
-  .btn-secondary { @apply btn bg-plaster text-timber hover:bg-plasterDark active:translate-y-0.5; box-shadow: 0 5px 0 0 #2a1a12; }
-  .btn-secondary:active { box-shadow: 0 0 0 0 #2a1a12; }
-  .btn-ghost { @apply btn bg-transparent text-timber border-timber/30 hover:bg-timber/5; }
-
-  .timber-frame {
-    @apply relative bg-plaster;
-    border: 3px solid #2a1a12;
-    box-shadow:
-      inset 0 0 0 6px #f6ecd6,
-      inset 0 0 0 9px #2a1a12,
-      8px 8px 0 0 #2a1a12;
+  .btn-primary {
+    @apply btn bg-accent text-paper hover:bg-accentDark;
+  }
+  .btn-secondary {
+    @apply btn bg-ink text-paper hover:bg-inkSoft;
+  }
+  .btn-ghost {
+    @apply btn bg-transparent text-ink border border-line hover:bg-cream;
+  }
+  .btn-link {
+    @apply inline-flex items-center gap-1 font-semibold text-accent hover:text-accentDark transition-colors;
   }
 
-  .section-title {
-    @apply text-3xl md:text-5xl font-display font-black text-timber;
-  }
+  /* Eyebrow – kleines, gespertes Label statt Handschrift */
   .eyebrow {
-    @apply inline-block font-hand text-2xl text-tealDark -rotate-2 mb-2;
+    @apply inline-block text-[11px] font-semibold uppercase tracking-eyebrow text-accent mb-3;
+  }
+
+  /* Section-Titel */
+  .section-title {
+    @apply font-display text-3xl md:text-5xl font-medium text-ink leading-[1.05];
+  }
+
+  /* Cards */
+  .card {
+    @apply bg-paper border border-line rounded-2xl transition-shadow duration-200;
+  }
+  .card-hover {
+    @apply hover:shadow-card;
   }
 }
 
-/* Leaflet tweak: rounded corners */
-.leaflet-container { border-radius: 0.5rem; }
+/* Leaflet Map */
+.leaflet-container {
+  border-radius: 1rem;
+  font-family: 'Inter', system-ui, sans-serif;
+}
 
-/* Eigener Marker – Default-Styles neutralisieren */
+/* Eigener Marker – ohne Default-Background */
 .leaflet-marker-icon.moe-pin {
   background: transparent !important;
   border: none !important;
@@ -61,29 +79,31 @@
   transition: transform 0.15s ease;
 }
 .moe-pin-inner:hover { transform: translateY(-2px); }
-.moe-pin-inner:hover .moe-pin-pill { background: #1f7c75; box-shadow: 3px 3px 0 0 #2a1a12; }
+.moe-pin-inner:hover .moe-pin-pill { background: #214f4c; }
 .moe-pin-pill {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  background: #2aa39a;
-  color: #f6ecd6;
-  border: 2px solid #2a1a12;
+  background: #2f6e6a;
+  color: #fafaf7;
   border-radius: 999px;
-  padding: 4px 12px;
-  font-weight: 800;
-  font-family: Inter, system-ui, sans-serif;
+  padding: 6px 14px;
+  font-weight: 600;
+  font-family: 'Inter', system-ui, sans-serif;
   font-size: 13px;
+  letter-spacing: 0.01em;
   white-space: nowrap;
-  box-shadow: 2px 2px 0 0 #2a1a12;
+  box-shadow: 0 6px 16px -4px rgba(26,20,16,0.25);
   line-height: 1.2;
-  transition: background 0.15s ease, box-shadow 0.15s ease;
+  transition: background 0.15s ease;
 }
 .moe-pin-arrow {
   width: 0;
   height: 0;
-  border-left: 7px solid transparent;
-  border-right: 7px solid transparent;
-  border-top: 10px solid #2a1a12;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 8px solid #2f6e6a;
   margin-top: -1px;
+  filter: drop-shadow(0 4px 4px rgba(26,20,16,0.15));
 }
+

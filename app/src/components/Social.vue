@@ -1,26 +1,25 @@
 <script setup>
 const socials = [
-  { name: 'Instagram', handle: '@moenckemeyer', url: 'https://www.instagram.com/moenckemeyer/', color: 'bg-ratred',  text: 'text-plaster', icon: 'ig' },
-  { name: 'Facebook',  handle: '/Moenckemeyer', url: 'https://www.facebook.com/Moenckemeyer',  color: 'bg-teal',    text: 'text-plaster', icon: 'fb' },
-  { name: 'YouTube',   handle: 'Mönckemeyer',   url: 'https://www.youtube.com/channel/UCp8vIKDHbaCYCM8pvJJ8opQ', color: 'bg-ratgold', text: 'text-timber', icon: 'yt' }
+  { name: 'Instagram', handle: '@moenckemeyer', url: 'https://www.instagram.com/moenckemeyer/', icon: 'ig' },
+  { name: 'Facebook',  handle: '/Moenckemeyer', url: 'https://www.facebook.com/Moenckemeyer',  icon: 'fb' },
+  { name: 'YouTube',   handle: 'Mönckemeyer',   url: 'https://www.youtube.com/channel/UCp8vIKDHbaCYCM8pvJJ8opQ', icon: 'yt' }
 ]
 </script>
 
 <template>
-  <section id="social" class="py-14 md:py-24 bg-plaster">
+  <section id="social" class="py-20 md:py-24 bg-paper border-t border-line">
     <div class="max-w-6xl mx-auto px-4 md:px-6">
-      <div class="text-center max-w-xl mx-auto">
-        <span class="eyebrow">bleib dran</span>
-        <h2 class="section-title">Folgt uns für Neues aus dem Laden.</h2>
-        <p class="mt-4 text-timber/80">Neue Kollektionen, Aktionen und kleine Geschichten aus der Osterstraße.</p>
+      <div class="max-w-2xl">
+        <span class="eyebrow">Folgen</span>
+        <h2 class="section-title">Neues aus dem Laden.</h2>
+        <p class="mt-4 text-base md:text-lg text-muted leading-relaxed">Neue Kollektionen, Aktionen und kleine Geschichten aus der Osterstraße.</p>
       </div>
 
-      <div class="mt-12 grid md:grid-cols-3 gap-5">
+      <div class="mt-10 md:mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
         <a v-for="s in socials" :key="s.name" :href="s.url" target="_blank" rel="noopener"
-           :class="['group relative rounded-xl border-2 border-timber p-7 flex items-center gap-5 hover:-translate-y-1 transition-transform', s.color, s.text]"
-           :style="{ boxShadow: '6px 6px 0 0 #2a1a12' }">
-          <div class="w-14 h-14 rounded-xl bg-plaster text-timber flex items-center justify-center border-2 border-timber">
-            <svg class="w-7 h-7" viewBox="0 0 24 24" fill="currentColor">
+           class="group relative bg-paper border border-line rounded-2xl p-6 flex items-center gap-4 transition-all duration-200 hover:border-ink hover:shadow-card">
+          <div class="w-12 h-12 rounded-full bg-accentSoft text-accent flex items-center justify-center shrink-0">
+            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
               <template v-if="s.icon === 'ig'">
                 <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm5 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6Zm5.5-3.2a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4Z"/>
               </template>
@@ -32,11 +31,11 @@ const socials = [
               </template>
             </svg>
           </div>
-          <div class="flex-1">
-            <div class="font-display text-2xl font-black">{{ s.name }}</div>
-            <div class="text-sm opacity-90">{{ s.handle }}</div>
+          <div class="flex-1 min-w-0">
+            <div class="font-display text-lg font-medium text-ink">{{ s.name }}</div>
+            <div class="text-sm text-muted truncate">{{ s.handle }}</div>
           </div>
-          <svg class="w-6 h-6 opacity-80 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <svg class="w-5 h-5 text-muted transition-transform group-hover:translate-x-1 group-hover:text-accent shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </a>

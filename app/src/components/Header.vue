@@ -21,40 +21,39 @@ const nav = [
 <template>
   <header
     :class="[
-      'sticky top-0 z-40 transition-all duration-200 border-b-2',
-      scrolled ? 'bg-plaster/95 backdrop-blur border-timber shadow-soft' : 'bg-plaster border-transparent'
+      'sticky top-0 z-40 transition-all duration-200 border-b',
+      scrolled ? 'bg-paper/95 backdrop-blur border-line shadow-sm' : 'bg-paper border-transparent'
     ]"
   >
-    <div class="max-w-6xl mx-auto px-4 md:px-6 py-2 md:py-3 flex items-center gap-4">
+    <div class="max-w-6xl mx-auto px-4 md:px-6 py-3 md:py-4 flex items-center gap-4">
       <a href="#top" class="flex items-center gap-3 shrink-0 origin-left">
         <img src="/logo.png" alt="Mönckemeyer – Taschen & Reise"
-             :class="['h-16 md:h-20 w-auto transition-transform duration-200 origin-left', scrolled ? 'scale-[0.72] md:scale-[0.75]' : 'scale-100']" />
+             :class="['h-14 md:h-16 w-auto transition-transform duration-200 origin-left', scrolled ? 'scale-[0.85]' : 'scale-100']" />
       </a>
-      <nav class="hidden md:flex items-center gap-7 mx-auto">
+      <nav class="hidden md:flex items-center gap-8 mx-auto">
         <a v-for="n in nav" :key="n.href" :href="n.href"
-           class="font-semibold text-timber hover:text-tealDark transition-colors relative group">
+           class="text-[15px] font-medium text-ink hover:text-accent transition-colors">
           {{ n.label }}
-          <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-teal transition-all group-hover:w-full"></span>
         </a>
       </nav>
       <a href="https://moenckemeyer.bagmondo.de/products" target="_blank" rel="noopener"
          class="btn-primary hidden md:inline-flex !py-2 !px-4 text-sm">
         Online-Shop
-        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
           <path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </a>
       <button class="md:hidden ml-auto p-2 -mr-2" @click="open = !open" aria-label="Menü">
-        <svg class="w-7 h-7 text-timber" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <svg class="w-7 h-7 text-ink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
           <path v-if="!open" d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/>
           <path v-else d="M6 6l12 12M18 6l-12 12" stroke-linecap="round"/>
         </svg>
       </button>
     </div>
-    <div v-show="open" class="md:hidden border-t-2 border-timber/20 bg-plaster">
+    <div v-show="open" class="md:hidden border-t border-line bg-paper">
       <div class="px-4 py-4 flex flex-col gap-3">
         <a v-for="n in nav" :key="n.href" :href="n.href" @click="open = false"
-           class="font-semibold text-timber py-1">{{ n.label }}</a>
+           class="font-medium text-ink py-1">{{ n.label }}</a>
         <a href="https://moenckemeyer.bagmondo.de/products" target="_blank" rel="noopener"
            class="btn-primary text-center justify-center mt-1">Online-Shop</a>
       </div>
